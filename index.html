@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bit Calculate</title>
+    <link rel="icon" href="/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="css/view.css">
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1 class="logo">
+            <img src="img/icon.png" alt=""> Bit Calculate</h1>
+    </header>
+    <article id="wrapper">
+        <section class="text-center">
+            <ul>
+                <li class="byte-box" :class="{active:b=='1'}" v-for="b in byte1">{{b}}</li>
+            </ul>
+        </section>
+        <section class="text-center">
+            <ul>
+                <li class="byte-box" :class="{active:b=='1'}" v-for="b in byte2">{{b}}</li>
+            </ul>
+        </section>
+        <section class="text-center">
+            <ul>
+                <li class="byte-box" :class="{active:b=='1'}" v-for="b in byter">{{b}}</li>
+            </ul>
+        </section>
+        <section class="text-center action">
+            <button @click="op = '&'" title="与运算">&amp;</button>
+            <button @click="op = '|'" title="或运算">|</button>
+            <button @click="op = '~'" title="取反">~</button>
+            <button @click="op = '^'" title="异或运算">^</button>
+            <button @click="op = '<<'" title="左移">&lt;&lt;</button>
+            <button @click="op = '>>'" title="右移">&gt;&gt;</button>
+            <button @click="op = '>>>'" title="无符号右移">&gt;&gt;&gt;</button>
+        </section>
+        <section class="text-center byte-op">
+            <input type="number" class="byte-input" v-model="number1" :class="{unvisitable: op=='~'}">
+            <span>{{op}}</span>
+            <input type="number" class="byte-input" v-model="number2">
+            <span>=</span>
+            <input type="number" class="byte-result" v-model="result" readonly>
+        </section>
+    </article>
+    <footer>
+        <p>Copyright © 2017
+            <br>All Rights Reserved Powered By
+            <a href="https://sxisa.com" target="_blank">ISA.</a>
+        </p>
+        <div class="hide">
+            <script src="js/app.js"></script>
+            <script src="//v1.cnzz.com/z_stat.php?id=5643392&amp;web_id=5643392" language="JavaScript"></script>
+            <script src="https://c.cnzz.com/core.php?web_id=5643392&amp;t=z" charset="utf-8" type="text/javascript"></script>
+            <a href="http://www.cnzz.com/stat/website.php?web_id=5643392" target="_blank" title="站长统计">站长统计</a>
+        </div>
+    </footer>
+</body>
+
+</html>
