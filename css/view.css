@@ -82,6 +82,7 @@ a:hover {
 
 .byte-box:nth-child(1).active {
     background-color: transparent;
+    color:#A40000;
 }
 
 .active {
