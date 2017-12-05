@@ -5,17 +5,39 @@ let vm = $ele("#wrapper") && new Vue({
     data: {
         number1: 0,
         number2: 0,
+        byte1: "00000000000000000000000000000000",
+        byte2: "00000000000000000000000000000000",
         op: "&"
     },
+    watch: {
+        byte1: function (val) {
+            let n = parseInt(val.substr(1), 2);
+            if (val[0] == 1) {
+                n = -Math.pow(2, 31) + n;
+            }
+            if (this.number1 != n)
+                this.number1 = n;
+        },
+        byte2: function (val) {
+            let n = parseInt(val.substr(1), 2);
+            if (val[0] == 1) {
+                n = -Math.pow(2, 31) + n;
+            }
+            if (this.number2 != n)
+                this.number2 = n;
+        },
+        number1: function (val) {
+            let number = parseInt(val);
+            if (this.byte1 != this.toByte(number))
+                this.byte1 = this.toByte(number);
+        },
+        number2: function (val) {
+            let number = parseInt(val);
+            if (this.byte2 != this.toByte(number))
+                this.byte2 = this.toByte(number);
+        }
+    },
     computed: {
-        byte1: function () {
-            let number = parseInt(this.number1);
-            return this.toByte(number);
-        },
-        byte2: function () {
-            let number = parseInt(this.number2);
-            return this.toByte(number);
-        },
         byter: function () {
             let number = parseInt(this.result);
             return this.toByte(number);
@@ -34,6 +56,11 @@ let vm = $ele("#wrapper") && new Vue({
             number = Math.pow(2, 32) + number;
             let data = "00000000000000000000000000000000" + number.toString(2);
             return data.substr(data.length - 32);
+        },
+        reByte: function (byte, index) {
+            b = byte.split('')
+            b[index] = b[index] == '1' ? '0' : '1'
+            return b.join('')
         }
     },
     mounted: function () {
