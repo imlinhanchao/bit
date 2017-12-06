@@ -19,12 +19,12 @@
     <article id="wrapper">
         <section class="text-center">
             <ul>
-                <li class="byte-box" @click="byte1=reByte(byte1, i)" :class="{active:b=='1'}" v-for="b,i in byte1">{{b}}</li>
+                <li class="byte-box byte-click" @click="byte1=reByte(byte1, i)" :class="{active:b=='1'}" v-for="b,i in byte1">{{b}}</li>
             </ul>
         </section>
         <section class="text-center">
             <ul>
-                <li class="byte-box" @click="byte2=reByte(byte2, i)" :class="{active:b=='1'}" v-for="b,i in byte2">{{b}}</li>
+                <li class="byte-box byte-click" @click="byte2=reByte(byte2, i)" :class="{active:b=='1'}" v-for="b,i in byte2">{{b}}</li>
             </ul>
         </section>
         <section class="text-center">
