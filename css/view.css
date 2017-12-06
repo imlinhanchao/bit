@@ -85,6 +85,10 @@ a:hover {
     color:#A40000;
 }
 
+.byte-click {
+    cursor: pointer;
+}
+
 .active {
     background-color: #000;
     border-left-color: #FFF; 
